@@ -3,7 +3,7 @@ import { RetellWebClient } from 'retell-client-js-sdk'
 
 const client = new RetellWebClient()
 
-const BACKEND_URL = 'http://localhost:4000'
+const BACKEND_URL = "https://backend-demo-55yw.onrender.com";
 
 export function useRetellCall() {
   const [callStatus, setCallStatus] = useState('idle')
