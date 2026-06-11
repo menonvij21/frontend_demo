@@ -19,14 +19,15 @@ export default function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Demo Banner */}
+      {/* Demo Notice */}
       <div className="mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-4">
         <p className="text-center text-blue-700 font-medium">
-          AI Voice Receptionist Demo Environment • Sample Analytics & Workflows
+          AI Voice Receptionist Demo Environment • Sample Analytics &
+          Workflows
         </p>
       </div>
 
-      {/* Sample Analytics */}
+      {/* Analytics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
           <div className="flex items-center gap-3">
@@ -71,16 +72,22 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* Main Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 flex flex-col items-center justify-center gap-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              AI Voice Receptionist Demo
+            <div className="inline-flex items-center gap-2 bg-medical-100 text-medical-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              Live AI Demonstration
+            </div>
+
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">
+              Try a Live Conversation
             </h2>
-            <p className="text-gray-500 max-w-sm">
-              Experience a live AI-powered receptionist capable of answering
-              patient inquiries, scheduling appointments, collecting information,
-              and providing 24/7 support.
+
+            <p className="text-gray-500 max-w-md">
+              Speak with the AI receptionist in real time. Test
+              appointment booking, patient support, office information
+              requests, and automated call handling.
             </p>
           </div>
 
@@ -104,6 +111,21 @@ export default function Dashboard() {
               Start a New Demo Call
             </button>
           )}
+
+          <div className="w-full border-t pt-6 mt-2">
+            <h3 className="font-semibold text-gray-800 mb-3">
+              What You Can Test
+            </h3>
+
+            <div className="grid grid-cols-1 gap-2 text-sm text-gray-600">
+              <div>✓ Appointment Scheduling</div>
+              <div>✓ Patient FAQs</div>
+              <div>✓ Office Hours & Information</div>
+              <div>✓ Insurance Questions</div>
+              <div>✓ Call Routing & Support</div>
+              <div>✓ Natural Voice Conversations</div>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -112,6 +134,7 @@ export default function Dashboard() {
             callId={callId}
             duration={duration}
           />
+
           <TranscriptViewer
             transcript={transcript}
             callStatus={callStatus}
@@ -121,9 +144,9 @@ export default function Dashboard() {
 
       <AppointmentList />
 
-      {/* Footer */}
-      <div className="mt-8 text-center text-xs text-gray-400">
-        Demo Environment • AI Voice Receptionist Prototype
+      <div className="mt-10 text-center text-xs text-gray-400">
+        AI Voice Receptionist Prototype • Built for Medical Clinics,
+        Dental Practices, and Healthcare Providers
       </div>
     </div>
   );
