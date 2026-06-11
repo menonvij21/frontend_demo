@@ -1,4 +1,4 @@
-﻿import { Phone, Calendar, Activity } from "lucide-react";
+import { Phone, Calendar, Activity } from "lucide-react";
 import CallButton from "../components/CallButton";
 import CallStatus from "../components/CallStatus";
 import TranscriptViewer from "../components/TranscriptViewer";
@@ -19,6 +19,14 @@ export default function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Demo Banner */}
+      <div className="mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-4">
+        <p className="text-center text-blue-700 font-medium">
+          AI Voice Receptionist Demo Environment • Sample Analytics & Workflows
+        </p>
+      </div>
+
+      {/* Sample Analytics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
           <div className="flex items-center gap-3">
@@ -27,7 +35,9 @@ export default function Dashboard() {
             </div>
             <div>
               <p className="text-2xl font-bold text-gray-800">24</p>
-              <p className="text-sm text-gray-500">Calls Today</p>
+              <p className="text-sm text-gray-500">
+                Sample Calls Processed
+              </p>
             </div>
           </div>
         </div>
@@ -39,7 +49,9 @@ export default function Dashboard() {
             </div>
             <div>
               <p className="text-2xl font-bold text-gray-800">18</p>
-              <p className="text-sm text-gray-500">Appointments Booked</p>
+              <p className="text-sm text-gray-500">
+                Sample Appointments Scheduled
+              </p>
             </div>
           </div>
         </div>
@@ -51,7 +63,9 @@ export default function Dashboard() {
             </div>
             <div>
               <p className="text-2xl font-bold text-gray-800">96%</p>
-              <p className="text-sm text-gray-500">Patient Satisfaction</p>
+              <p className="text-sm text-gray-500">
+                Sample Service Rating
+              </p>
             </div>
           </div>
         </div>
@@ -61,11 +75,12 @@ export default function Dashboard() {
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 flex flex-col items-center justify-center gap-6">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              AI Medical Receptionist
+              AI Voice Receptionist Demo
             </h2>
             <p className="text-gray-500 max-w-sm">
-              Our AI receptionist is available 24/7 to help patients book
-              appointments, answer questions, and provide support.
+              Experience a live AI-powered receptionist capable of answering
+              patient inquiries, scheduling appointments, collecting information,
+              and providing 24/7 support.
             </p>
           </div>
 
@@ -86,7 +101,7 @@ export default function Dashboard() {
               onClick={resetCall}
               className="text-sm text-medical-600 hover:underline"
             >
-              Start a new call
+              Start a New Demo Call
             </button>
           )}
         </div>
@@ -105,6 +120,11 @@ export default function Dashboard() {
       </div>
 
       <AppointmentList />
+
+      {/* Footer */}
+      <div className="mt-8 text-center text-xs text-gray-400">
+        Demo Environment • AI Voice Receptionist Prototype
+      </div>
     </div>
   );
 }
