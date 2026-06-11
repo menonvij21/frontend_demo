@@ -1,32 +1,34 @@
-﻿import { Calendar, Clock, User, CheckCircle } from "lucide-react";
+import {
+  Calendar,
+  CheckCircle,
+  Phone,
+  Clock,
+} from "lucide-react";
 
-const mockAppointments = [
+const workflowSteps = [
   {
-    id: 1,
-    patient: "John Smith",
-    date: "2024-12-20",
-    time: "9:00 AM",
-    type: "General Checkup",
-    status: "confirmed",
-    doctor: "Dr. Sarah Johnson",
+    title: "Patient Calls Clinic",
+    description:
+      "The AI receptionist answers incoming calls instantly and greets the patient.",
+    icon: Phone,
   },
   {
-    id: 2,
-    patient: "Emily Davis",
-    date: "2024-12-20",
-    time: "10:30 AM",
-    type: "Follow-up",
-    status: "confirmed",
-    doctor: "Dr. Mike Chen",
+    title: "Information Collection",
+    description:
+      "Patient information and appointment requirements are collected automatically.",
+    icon: Clock,
   },
   {
-    id: 3,
-    patient: "Robert Wilson",
-    date: "2024-12-21",
-    time: "2:00 PM",
-    type: "Consultation",
-    status: "pending",
-    doctor: "Dr. Sarah Johnson",
+    title: "Appointment Scheduling",
+    description:
+      "The AI checks availability and schedules the appropriate appointment.",
+    icon: Calendar,
+  },
+  {
+    title: "Confirmation Provided",
+    description:
+      "Appointment details are confirmed and communicated to the patient.",
+    icon: CheckCircle,
   },
 ];
 
@@ -34,51 +36,42 @@ export default function AppointmentList() {
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm">
       <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-        <div className="flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-medical-600" />
+        <div>
           <h2 className="font-semibold text-gray-800">
-            Appointments Booked via AI
+            Sample Appointment Workflow
           </h2>
+
+          <p className="text-sm text-gray-500 mt-1">
+            Demonstration of how the AI receptionist manages patient calls and bookings.
+          </p>
         </div>
-        <span className="text-xs bg-medical-100 text-medical-700 px-2 py-1 rounded-full font-medium">
-          {mockAppointments.length} Today
-        </span>
       </div>
 
-      <div className="divide-y divide-gray-50">
-        {mockAppointments.map((apt) => (
-          <div key={apt.id} className="px-5 py-4 hover:bg-gray-50 transition">
-            <div className="flex items-start justify-between">
-              <div className="flex items-start gap-3">
-                <div className="bg-medical-100 p-2 rounded-xl">
-                  <User className="w-4 h-4 text-medical-600" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800">{apt.patient}</p>
-                  <p className="text-sm text-gray-500">{apt.type}</p>
-                  <p className="text-xs text-gray-400 mt-1">{apt.doctor}</p>
-                </div>
+      <div className="p-5 space-y-4">
+        {workflowSteps.map((step, index) => {
+          const Icon = step.icon;
+
+          return (
+            <div
+              key={index}
+              className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition"
+            >
+              <div className="bg-medical-100 p-3 rounded-xl">
+                <Icon className="w-5 h-5 text-medical-600" />
               </div>
 
-              <div className="flex flex-col items-end gap-1">
-                <div className="flex items-center gap-1 text-sm text-gray-600">
-                  <Clock className="w-3 h-3" />
-                  {apt.time}
-                </div>
-                <div className="flex items-center gap-1 text-xs text-gray-400">
-                  <Calendar className="w-3 h-3" />
-                  {apt.date}
-                </div>
-                <span
-                  className={"flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full mt-1 " + (apt.status === "confirmed" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700")}
-                >
-                  <CheckCircle className="w-3 h-3" />
-                  {apt.status}
-                </span>
+              <div>
+                <h3 className="font-medium text-gray-800">
+                  {step.title}
+                </h3>
+
+                <p className="text-sm text-gray-500 mt-1">
+                  {step.description}
+                </p>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
